@@ -92,7 +92,7 @@ const char* XLConvertNSStringToUTF8CString(NSString* string) {
 }
 
 // From http://developer.apple.com/mac/library/qa/qa2004/qa1361.html
-BOOL XLIsDebuggerAttached() {
+BOOL XLIsDebuggerAttached(void) {
   int mib[4];
   mib[0] = CTL_KERN;
   mib[1] = KERN_PROC;

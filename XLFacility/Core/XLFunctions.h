@@ -55,7 +55,7 @@ const char* XLConvertNSStringToUTF8CString(NSString* string);
 /**
  *  Check if a debugger is currently attached to the process.
  */
-BOOL XLIsDebuggerAttached();
+BOOL XLIsDebuggerAttached(void);
 
 #ifdef __cplusplus
 }
