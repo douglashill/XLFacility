@@ -48,6 +48,10 @@
 @implementation XLDatabaseLogger
 
 + (void)initialize {
+  if (self != [XLDatabaseLogger class]) {
+    return;
+  }
+
   XLOG_DEBUG_CHECK(sqlite3_threadsafe());
 }
 
