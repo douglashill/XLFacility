@@ -100,7 +100,7 @@
 #define XLOG_CHECK(__CONDITION__) \
 do { \
   if (!(__CONDITION__)) { \
-    XLOG_ABORT(@"Condition failed: \"%s\"", #__CONDITION__); \
+    XLOG_ABORT(@"Condition failed: “%s”", #__CONDITION__); \
   } \
 } while (0)
 

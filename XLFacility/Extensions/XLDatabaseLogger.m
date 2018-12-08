@@ -100,7 +100,7 @@
       result = sqlite3_prepare_v2(_database, [statement UTF8String], -1, &_statement, NULL);
     }
     if (result != SQLITE_OK) {
-      XLOG_ERROR(@"Failed opening database at path \"%@\": %s", _databasePath, sqlite3_errmsg(_database));
+      XLOG_ERROR(@"Failed opening database at path “%@”: %s", _databasePath, sqlite3_errmsg(_database));
       sqlite3_close(_database);  // Always call even if sqlite3_open() failed
       _database = NULL;
       success = NO;
@@ -135,7 +135,7 @@
       sqlite3_bind_null(_statement, 8);
     }
     if (sqlite3_step(_statement) != SQLITE_DONE) {
-      XLOG_ERROR(@"Failed writing to database at path \"%@\": %s", _databasePath, sqlite3_errmsg(_database));
+      XLOG_ERROR(@"Failed writing to database at path “%@”: %s", _databasePath, sqlite3_errmsg(_database));
     }
     sqlite3_reset(_statement);
     sqlite3_clear_bindings(_statement);
@@ -166,7 +166,7 @@
       result = sqlite3_exec(_database, "VACUUM", NULL, NULL, NULL);
     }
     if (result != SQLITE_OK) {
-      XLOG_ERROR(@"Failed purging records from database at path \"%@\": %s", _databasePath, sqlite3_errmsg(_database));
+      XLOG_ERROR(@"Failed purging records from database at path “%@”: %s", _databasePath, sqlite3_errmsg(_database));
       success = NO;
     }
   });
@@ -224,13 +224,13 @@
             break;
           }
         } else {
-          XLOG_ERROR(@"Failed reading record from database at path \"%@\": %s", _databasePath, sqlite3_errmsg(_database));
+          XLOG_ERROR(@"Failed reading record from database at path “%@”: %s", _databasePath, sqlite3_errmsg(_database));
         }
       }
     }
     sqlite3_finalize(statement);
     if (result != SQLITE_DONE) {
-      XLOG_ERROR(@"Failed reading database at path \"%@\": %s", _databasePath, sqlite3_errmsg(_database));
+      XLOG_ERROR(@"Failed reading database at path “%@”: %s", _databasePath, sqlite3_errmsg(_database));
       success = NO;
     }
   });
